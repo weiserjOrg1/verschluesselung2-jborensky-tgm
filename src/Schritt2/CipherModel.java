@@ -4,6 +4,10 @@ public class CipherModel {
 	private String etext;
 	private String dtext;
 	private String alphabet;
+	public CipherModel() {
+		this.etext = " ";
+		this.dtext = " ";
+	}
 	public String getEtext() {
 		return etext;
 	}

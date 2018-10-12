@@ -6,15 +6,16 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class CipherController implements ActionListener {
-	private CipherModel m1;
-	private CipherView v1;
+	private CipherModel Model;
+	private CipherView View;
 	private SubstitutionCipher s1;
-	public CipherController(SubstitutionCipher s) {
-		this.s1 = s;
+	public CipherController() {
+		this.Model = new CipherModel();
+		this.View = new CipherView(this.Model, this);
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
+		this.s1 = new SubstitutionCipher(" ");
 	}
 	
 }
