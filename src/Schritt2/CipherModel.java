@@ -7,6 +7,7 @@ public class CipherModel {
 	public CipherModel() {
 		this.etext = " ";
 		this.dtext = " ";
+		this.alphabet = " ";
 	}
 	public String getEtext() {
 		return etext;

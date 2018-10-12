@@ -12,7 +12,7 @@ public class CipherPanel extends JPanel{
 	}
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		//g.drawString("Verschlüsselter Text:"+"/n"+this.m1.getEtext(), 5, 5);
-		g.drawString("Entschlüsselter Text:"+"/n"+this.m1.getDtext(), 40, 5);
+		g.drawString("Verschlüsselter Text: "+"\n"+this.m1.getEtext(), 5, 20);
+		g.drawString("Entschlüsselter Text: "+"\n"+this.m1.getDtext(), 5, 40);
 	}
 }

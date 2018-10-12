@@ -15,7 +15,21 @@ public class CipherController implements ActionListener {
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		this.s1 = new SubstitutionCipher(" ");
+		if(this.View.klickSA(e)) {
+			this.View.refresh();
+			this.View.setText();
+			this.s1 = new SubstitutionCipher(this.Model.getAlphabet());
+		}
+		if(this.View.klickDe(e)) {
+			this.View.setDe();
+			this.Model.setDtext(this.s1.decrypt(this.Model.getDtext()));
+			this.View.refresh();
+		}
+		if(this.View.klickEn(e)) {
+			this.View.setEn();
+			this.Model.setEtext(this.s1.encrypt(this.Model.getEtext()));
+			this.View.refresh();
+		}
 	}
 	
 }
