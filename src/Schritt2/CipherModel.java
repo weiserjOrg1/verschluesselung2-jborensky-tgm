@@ -5,6 +5,7 @@ public class CipherModel {
 	private String dtext;
 	private String alphabet;
 	private int Ver;
+	public String keyWord;
 	public CipherModel() {
 		this.etext = " ";
 		this.dtext = " ";
@@ -33,6 +34,12 @@ public class CipherModel {
 	}
 	public void setVer(int ver) {
 		Ver = ver;
+	}
+	public String getKeyWord() {
+		return this.keyWord;
+	}
+	public void setKeyword(String KeyWord) {
+		this.keyWord = KeyWord;
 	}
 	
 }

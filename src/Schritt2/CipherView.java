@@ -20,12 +20,15 @@ public class CipherView extends JFrame {
 	private CipherController Controller;
 	private JButton setShAlphabet;
 	private Container SetA;
+	private Container kCipher;
+	private JTextField keyWord;
+	private JButton UseKeyW;
 	public CipherView(CipherModel m, CipherController c) {
 		this.setTitle("Cipher");
 		this.Model = m;
 		this.Controller = c;
 		this.Panel = new CipherPanel(this, this.Model);
-		this.setLayout(new GridLayout(3,2));
+		this.setLayout(new GridLayout(4,2));
 		this.EnDeT = new Container();
 		this.EnDeT.setLayout(new GridLayout(2,1));
 		this.tTexten = new JTextField("entschlüsselter Text eingeben");
@@ -52,6 +55,14 @@ public class CipherView extends JFrame {
 		this.EnDe.add(this.en);
 		this.EnDe.add(this.de);
 		this.add(this.EnDe);
+		this.kCipher = new Container();
+		this.kCipher.setLayout(new GridLayout(2,1));
+		this.keyWord = new JTextField("Geben Sie ein Keyword ein!");
+		this.UseKeyW = new JButton("Alphabet mit Keyword erstellen!");
+		this.kCipher.add(this.keyWord);
+		this.kCipher.add(this.UseKeyW);
+		this.add(this.kCipher);
+		this.UseKeyW.addActionListener(this.Controller);
 		this.en.addActionListener(this.Controller);
 		this.de.addActionListener(this.Controller);
 		this.setAlphabet.addActionListener(this.Controller);
@@ -69,6 +80,10 @@ public class CipherView extends JFrame {
 	}
 	public boolean klickDe(ActionEvent e) {
 		if (e.getSource() == this.de) return true;
+		return false;
+	}
+	public boolean klickUKW(ActionEvent e) {
+		if (e.getSource() == this.UseKeyW) return true;
 		return false;
 	}
 	public void refresh() {
@@ -96,5 +111,9 @@ public class CipherView extends JFrame {
 			JOptionPane.showMessageDialog(null, "Geben Sie eine korrekte Zahl ein!");
 		}
 		this.Model.setVer(i);
+	}
+	public void setKW() {
+		this.Model.setKeyword(this.keyWord.getText());
+		
 	}
 }
