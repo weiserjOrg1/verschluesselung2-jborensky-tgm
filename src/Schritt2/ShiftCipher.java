@@ -1,14 +1,28 @@
 package Schritt2;
 
+import javax.swing.JOptionPane;
+
+import Schritt1.MonoAlphabeticCipher;
+
 public class ShiftCipher extends MonoAlphabeticCipher{
 	public char[] alph = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t',
 			   'u','v','w','x','y','z','ä','ö','ü','ß'};
+	private int shiftValue;
 	public ShiftCipher(int i) {
-		if (i!=0) cycle(i);
-		this.setSecretAlphabet(new String(this.alph));
+		this.setShiftValue(i);
+		this.cycle();
 	}
 	
-	private void cycle(int i){
+	public void setShiftValue(int i) {
+		if (i>0&&i<=30) {
+			this.shiftValue = i;
+		} else {
+			JOptionPane.showMessageDialog(null, "Geben Sie einen korrekten Wert ein!");
+		}
+	}
+	
+	private void cycle(){
+		int i = this.shiftValue;
 		char[] alph = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t',
 					   'u','v','w','x','y','z','ä','ö','ü','ß'};
 		char[] newAlph = new char[this.alph.length];

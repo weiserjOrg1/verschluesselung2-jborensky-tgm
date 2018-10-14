@@ -5,6 +5,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
+import Schritt1.SubstitutionCipher;
+
 public class CipherController implements ActionListener {
 	private CipherModel Model;
 	private CipherView View;

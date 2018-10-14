@@ -1,6 +1,8 @@
-package Schritt2;
+package Schritt1;
 
 import javax.swing.JOptionPane;
+
+import Schritt2.CipherController;
 
 public class Test {
 	public static void main(String[] args) {

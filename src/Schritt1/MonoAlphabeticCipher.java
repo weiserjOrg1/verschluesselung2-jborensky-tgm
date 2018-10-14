@@ -1,6 +1,6 @@
-package Schritt3;
+package Schritt1;
 
-import Schritt2.InException;
+import Schritt1.InException;
 
 public class MonoAlphabeticCipher implements Cipher {
 	private String secretAlphabet;//Variable für das secretAlphabet/Verschlüsselungsalphabet  

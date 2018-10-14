@@ -1,4 +1,4 @@
-package Schritt3;
+package Schritt1;
 
 public class SubstitutionCipher extends MonoAlphabeticCipher {
 	/**

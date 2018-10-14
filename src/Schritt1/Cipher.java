@@ -1,4 +1,4 @@
-package Schritt3;
+package Schritt1;
 
 public interface Cipher {
 	//legt die Syntax, die für die beiden Methoden zu beachten ist, fest. 

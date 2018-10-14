@@ -1,4 +1,4 @@
-package Schritt3;
+package Schritt1;
 
 public class InException extends NumberFormatException{
 	/* Der Konstruktor der Exception legt mittels eines Parameters den Ausgabetext fest.
