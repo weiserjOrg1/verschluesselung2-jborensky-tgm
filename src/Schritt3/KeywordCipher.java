@@ -16,7 +16,7 @@ public class KeywordCipher extends MonoAlphabeticCipher{
 	public void createAlphabet() {
 		String Alphabet = "";
 		String keyword = "";
-		this.keyword.toLowerCase();
+		this.keyword = this.keyword.toLowerCase();
 		while(true) {
 			if (checkForMoreThanOne(this.keyword)) break;
 			checkNumbOfLetters(this.keyword);
@@ -28,9 +28,8 @@ public class KeywordCipher extends MonoAlphabeticCipher{
 	private String setnewAlph() {
 		char[] alph = this.getSecretAlphabet().toCharArray();
 		char[] word = this.keyword.toCharArray();
-		int w = 1;
 		for (int j = 0; j < word.length; j++) {
-			for (int i=w; i<alph.length; i++) {
+			for (int i=0; i<alph.length; i++) {
 				if (word[j] == alph[i]) {
 					char[] hilfe = new char[alph.length-1];
 					for (int k = 0, l=0; k < hilfe.length; k++, l++) {
@@ -43,7 +42,6 @@ public class KeywordCipher extends MonoAlphabeticCipher{
 					alph = hilfe;
 				}
 			}
-			w++;
 		}
 		return String.valueOf(alph);
 	}
