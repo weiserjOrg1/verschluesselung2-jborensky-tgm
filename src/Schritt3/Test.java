@@ -1,10 +1,11 @@
 package Schritt3;
 
+import javax.swing.JOptionPane;
+
+import Schritt2.CipherController;
+
 public class Test {
-
 	public static void main(String[] args) {
-		KeywordCipher c1 = new KeywordCipher("Hallo");
-		System.out.println(c1.getSecretAlphabet());
-	}
-
+        CipherController c1 = new CipherController();
+    }
 }

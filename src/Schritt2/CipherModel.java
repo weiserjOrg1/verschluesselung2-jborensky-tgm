@@ -7,9 +7,11 @@ public class CipherModel {
 	private int Ver;
 	public String keyWord;
 	public CipherModel() {
-		this.etext = " ";
-		this.dtext = " ";
-		this.alphabet = " ";
+		this.etext = "";
+		this.dtext = "";
+		this.alphabet = "";
+		this.keyWord = "";
+		this.Ver = 0;
 	}
 	public String getEtext() {
 		return etext;
@@ -41,5 +43,11 @@ public class CipherModel {
 	public void setKeyword(String KeyWord) {
 		this.keyWord = KeyWord;
 	}
-	
+	public void refresh() {
+		this.etext = "";
+		this.dtext = "";
+		this.alphabet = "";
+		this.keyWord = "";
+		this.Ver = 0;
+	}
 }

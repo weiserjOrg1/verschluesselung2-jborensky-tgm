@@ -25,22 +25,28 @@ public class CipherController implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(this.View.klickSA(e)) {
+			this.View.repaint();
+			this.Model.refresh();
 			this.View.refresh();
 			this.View.setText();
 			this.s1 = new SubstitutionCipher(this.Model.getAlphabet());
-			this.alphT = true;
+			this.alphT = true; this.shT = false; this.kCT = false;
 		}
 		if (this.View.klickShA(e)) {
+			this.View.repaint();
+			this.Model.refresh();
 			this.View.refresh();
 			this.View.setWert();
 			this.sh1 = new ShiftCipher(this.Model.getVer());
-			this.shT = true;
+			this.shT = true; this.alphT = false; this.kCT = false;
 		}
 		if (this.View.klickUKW(e)) {
+			this.View.repaint();
+			this.Model.refresh();
 			this.View.refresh();
 			this.View.setKW();
 			this.kC = new KeywordCipher(this.Model.getKeyWord());
-			this.kCT = true;
+			this.kCT = true; this.alphT = false; this.shT = false;
 		}
 		if(this.View.klickDe(e)) {
 			this.View.setDe();
