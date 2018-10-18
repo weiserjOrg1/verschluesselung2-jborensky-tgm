@@ -3,7 +3,11 @@ package Schritt2;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
+import javax.print.attribute.AttributeSet;
 import javax.swing.*;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.Document;
+import javax.swing.text.PlainDocument;
 
 public class CipherView extends JFrame {
 	private JTextField tAlphabet;
@@ -11,7 +15,6 @@ public class CipherView extends JFrame {
 	private JTextField tTextde;
 	private JTextField iShift;
 	private JButton setAlphabet;
-	private Container EnDe;
 	private Container EnDeT;
 	private Container newA;
 	private JButton en;
@@ -35,19 +38,26 @@ public class CipherView extends JFrame {
 		this.setLayout(new GridLayout(4,2));
 		this.EnDeT = new Container();
 		this.EnDeT.setLayout(new GridLayout(2,1));
-		this.tTexten = new JTextField("entschlüsselter Text eingeben");
-		this.tTextde = new JTextField("verschlüsselter Text eingeben");
+		this.tTexten = new JTextField("entschlüsselten Text eingeben", SwingConstants.CENTER);
+		this.tTextde = new JTextField("verschlüsselter Text eingeben", SwingConstants.CENTER);
+		this.tTexten.setFont(new Font("Arial", Font.PLAIN, 18)); this.tTexten.setForeground(Color.RED);
+		this.tTextde.setFont(new Font("Arial", Font.PLAIN, 18)); this.tTextde.setForeground(Color.BLUE);
+		this.tTextde.setHorizontalAlignment(JTextField.CENTER);
+		this.tTexten.setHorizontalAlignment(JTextField.CENTER);
+		this.tTextde.setBackground(this.Panel.getBackground());
+		this.tTexten.setBackground(this.Panel.getBackground());
 		this.EnDeT.add(this.tTexten);
 		this.EnDeT.add(this.tTextde);
 		this.add(this.EnDeT);
+		this.add(this.Panel);
 		this.newA = new Container();
 		this.newA.setLayout(new GridLayout(2,1));
 		this.tAlphabet = new JTextField("Alphabet eingeben");
+		//this.tAlphabet.setDocument(createNumericDocumentWithMaxLength(30));
 		this.setAlphabet = new JButton("neues Alphabet verwenden");
 		this.newA.add(this.tAlphabet);
 		this.newA.add(this.setAlphabet);
 		this.add(newA);
-		this.add(this.Panel);
 		this.SetA = new Container();
 		this.SetA.setLayout(new GridLayout(2,1));
 		this.iShift = new JTextField("Geben Sie eine Zahl zwischen 1 und 30 ein!");
@@ -55,13 +65,6 @@ public class CipherView extends JFrame {
 		this.SetA.add(this.iShift);
 		this.SetA.add(this.setShAlphabet);
 		this.add(this.SetA);
-		this.EnDe = new Container();
-		this.EnDe.setLayout(new GridLayout(2,1));
-		this.en = new JButton("Verschlüsseln");
-		this.de = new JButton("Entschlüsseln");
-		this.EnDe.add(this.en);
-		this.EnDe.add(this.de);
-		this.add(this.EnDe);
 		this.kCipher = new Container();
 		this.kCipher.setLayout(new GridLayout(2,1));
 		this.keyWord = new JTextField("Geben Sie ein Keyword ein!");
@@ -76,13 +79,22 @@ public class CipherView extends JFrame {
 		this.setTC.add(this.setLevV);
 		this.setTC.add(this.setLev);
 		this.add(this.setTC);
+		this.en = new JButton("Verschlüsseln");
+		this.de = new JButton("Entschlüsseln");
+		this.en.setFont(new Font("Segoe", Font.PLAIN, 18)); 
+		this.de.setFont(new Font("Segoe", Font.PLAIN, 18));
+		this.en.setBackground(Color.RED); this.en.setForeground(Color.WHITE);
+		this.de.setBackground(Color.BLUE); this.de.setForeground(Color.WHITE);
+		this.add(this.en);
+		this.add(this.de);
 		this.setLev.addActionListener(this.Controller);
 		this.UseKeyW.addActionListener(this.Controller);
 		this.en.addActionListener(this.Controller);
 		this.de.addActionListener(this.Controller);
 		this.setAlphabet.addActionListener(this.Controller);
 		this.setShAlphabet.addActionListener(this.Controller);
-		this.setSize(500, 500);
+		this.setSize(700, 400);
+		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 	}
 	public boolean klickSA(ActionEvent e) {
@@ -125,7 +137,11 @@ public class CipherView extends JFrame {
 		} catch (NumberFormatException e) {
 			JOptionPane.showMessageDialog(null, "Geben Sie eine korrekte Zahl ein!");
 		}
-		this.Model.setVer(i);
+		if (i > 0 && i<= 30) {
+			this.Model.setVer(i);
+		} else {
+			JOptionPane.showMessageDialog(null, "Geben Sie eine korrekte Zahl ein!");
+		}
 	}
 	public void setKW() {
 		this.Model.setKeyword(this.keyWord.getText());
@@ -136,14 +152,36 @@ public class CipherView extends JFrame {
 		String s = this.setLevV.getText();
 		try {
 			value = Integer.parseInt(s);
+			
 		} catch (NumberFormatException e) {
 			JOptionPane.showMessageDialog(null, "Geben Sie eine korrekte Zahl ein!");
 		}
-		this.Model.setLev(value);
-		
+		if (value > 0 && value<= 5) {
+			this.Model.setLev(value);
+		} else {
+			JOptionPane.showMessageDialog(null, "Geben Sie eine korrekte Zahl ein!");
+		}
 	}
 	public boolean klickTS(ActionEvent e) {
 		if(e.getSource() == this.setLev) return true;
 		return false;
 	}
+	/*private Document createNumericDocumentWithMaxLength(final int maxLength){
+	     
+	      Document doc = new PlainDocument(){
+	         @Override
+	         public void insertString(int offs, String str, javax.swing.text.AttributeSet a) throws BadLocationException {
+	            if(getLength() + str.length() > maxLength)
+	               return;
+	            if(!str.matches("^[\\d]*$"))
+	               return;
+	           
+	           
+	            super.insertString(offs, str, a);
+	         }
+	      };
+	      return doc;
+	     
+	   } 
+	   */
 }
