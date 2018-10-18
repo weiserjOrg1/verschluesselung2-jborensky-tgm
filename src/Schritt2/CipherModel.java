@@ -6,12 +6,14 @@ public class CipherModel {
 	private String alphabet;
 	private int Ver;
 	public String keyWord;
+	private int lev;
 	public CipherModel() {
 		this.etext = "";
 		this.dtext = "";
 		this.alphabet = "";
 		this.keyWord = "";
 		this.Ver = 0;
+		this.lev = 0;
 	}
 	public String getEtext() {
 		return etext;
@@ -49,5 +51,12 @@ public class CipherModel {
 		this.alphabet = "";
 		this.keyWord = "";
 		this.Ver = 0;
+		this.lev = 0;
+	}
+	public int getLev() {
+		return this.lev;
+	}
+	public void setLev(int lev) {
+		this.lev = lev;
 	}
 }

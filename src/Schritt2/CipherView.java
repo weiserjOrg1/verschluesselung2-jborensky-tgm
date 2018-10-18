@@ -24,6 +24,9 @@ public class CipherView extends JFrame {
 	private Container kCipher;
 	private JTextField keyWord;
 	private JButton UseKeyW;
+	private Container setTC;
+	private JTextField setLevV;
+	private JButton setLev;
 	public CipherView(CipherModel m, CipherController c) {
 		this.setTitle("Cipher");
 		this.Model = m;
@@ -66,6 +69,14 @@ public class CipherView extends JFrame {
 		this.kCipher.add(this.keyWord);
 		this.kCipher.add(this.UseKeyW);
 		this.add(this.kCipher);
+		this.setTC = new Container();
+		this.setTC.setLayout(new GridLayout(2,1));
+		this.setLevV = new JTextField("Verschiebungsfaktor zwischen 1 und 5 eingeben!");
+		this.setLev = new JButton("Transposition verwenden!");
+		this.setTC.add(this.setLevV);
+		this.setTC.add(this.setLev);
+		this.add(this.setTC);
+		this.setLev.addActionListener(this.Controller);
 		this.UseKeyW.addActionListener(this.Controller);
 		this.en.addActionListener(this.Controller);
 		this.de.addActionListener(this.Controller);
@@ -119,5 +130,20 @@ public class CipherView extends JFrame {
 	public void setKW() {
 		this.Model.setKeyword(this.keyWord.getText());
 		
+	}
+	public void setVal() {
+		int value = 0;
+		String s = this.setLevV.getText();
+		try {
+			value = Integer.parseInt(s);
+		} catch (NumberFormatException e) {
+			JOptionPane.showMessageDialog(null, "Geben Sie eine korrekte Zahl ein!");
+		}
+		this.Model.setLev(value);
+		
+	}
+	public boolean klickTS(ActionEvent e) {
+		if(e.getSource() == this.setLev) return true;
+		return false;
 	}
 }
