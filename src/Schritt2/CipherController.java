@@ -3,13 +3,18 @@ package Schritt2;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import Schritt1.SubstitutionCipher;
 import Schritt3.KeywordCipher;
 import Schritt3.TranspositionCipher;
 
-public class CipherController implements ActionListener {
+public class CipherController implements ActionListener, ItemListener {
 	private CipherModel Model;
 	private CipherView View;
 	private SubstitutionCipher s1;
@@ -24,6 +29,7 @@ public class CipherController implements ActionListener {
 		this.alphT = false;
 		this.Model = new CipherModel();
 		this.View = new CipherView(this.Model, this);
+		this.View.lock(0);
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -75,6 +81,12 @@ public class CipherController implements ActionListener {
 			if (this.TcT) this.Model.setEtext(this.TC.encrypt(this.Model.getEtext()));
 			this.View.refresh();
 		}
+		
+	}
+	@Override
+	public void itemStateChanged(ItemEvent arg0) {
+		int i = this.View.getButton();
+		this.View.lock(i);
 	}
 	
 }

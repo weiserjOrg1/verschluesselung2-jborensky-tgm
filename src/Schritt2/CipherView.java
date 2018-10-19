@@ -30,12 +30,19 @@ public class CipherView extends JFrame {
 	private Container setTC;
 	private JTextField setLevV;
 	private JButton setLev;
+	private JRadioButton setS;
+	private JRadioButton setM;
+	private JRadioButton setT;
+	private ButtonGroup setSMT;
+	private JRadioButton setK;
+	private Container BGroup;
 	public CipherView(CipherModel m, CipherController c) {
+		//Fenster 
 		this.setTitle("Cipher");
 		this.Model = m;
 		this.Controller = c;
 		this.Panel = new CipherPanel(this, this.Model);
-		this.setLayout(new GridLayout(4,2));
+		this.setLayout(new GridLayout(5,1));
 		this.EnDeT = new Container();
 		this.EnDeT.setLayout(new GridLayout(2,1));
 		this.tTexten = new JTextField("entschlüsselten Text eingeben", SwingConstants.CENTER);
@@ -87,6 +94,26 @@ public class CipherView extends JFrame {
 		this.de.setBackground(Color.BLUE); this.de.setForeground(Color.WHITE);
 		this.add(this.en);
 		this.add(this.de);
+		this.setS = new JRadioButton("ShiftCipher verwenden");
+		this.setM = new JRadioButton("MonoalphabeticCipher mit eigenem Alphabet verwenden");
+		this.setT = new JRadioButton("TranspositionCipher verwenden");
+		this.setK = new JRadioButton("KeywordCipher verwenden");
+		this.setSMT = new ButtonGroup();
+		this.setSMT.add(this.setS);
+		this.setSMT.add(this.setM);
+		this.setSMT.add(this.setT);
+		this.setSMT.add(this.setK);
+		this.BGroup = new Container();
+		this.BGroup.setLayout(new GridLayout(3,1));
+		this.BGroup.add(this.setS);
+		this.BGroup.add(this.setM);
+		this.BGroup.add(this.setT);
+		this.BGroup.add(this.setK);
+		this.add(this.BGroup);
+		this.setS.addItemListener(this.Controller);
+		this.setM.addItemListener(this.Controller);
+		this.setT.addItemListener(this.Controller);
+		this.setK.addItemListener(this.Controller);
 		this.setLev.addActionListener(this.Controller);
 		this.UseKeyW.addActionListener(this.Controller);
 		this.en.addActionListener(this.Controller);
@@ -96,6 +123,22 @@ public class CipherView extends JFrame {
 		this.setSize(700, 400);
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
+	}
+	public boolean setS(ActionEvent e) {
+		if (e.getSource() == this.setS) return true;
+		return false;
+	}
+	public boolean setT(ActionEvent e) {
+		if (e.getSource() == this.setT) return true;
+		return false;
+	}
+	public boolean setK(ActionEvent e) {
+		if (e.getSource() == this.setK) return true;
+		return false;
+	}
+	public boolean setM(ActionEvent e) {
+		if (e.getSource() == this.setM) return true;
+		return false;
 	}
 	public boolean klickSA(ActionEvent e) {
 		if (e.getSource() == this.setAlphabet) return true;
@@ -184,4 +227,46 @@ public class CipherView extends JFrame {
 	     
 	   } 
 	   */
+	public void lock(int i) {
+		switch(i) {
+			case 1: this.iShift.setEditable(true); this.setShAlphabet.setEnabled(true);
+					this.setLev.setEnabled(false); this.setLevV.setEditable(false);
+					this.keyWord.setEditable(false); this.UseKeyW.setEnabled(false);
+					this.tAlphabet.setEditable(false); this.setAlphabet.setEnabled(false);
+					break;
+					
+			case 2: this.iShift.setEditable(false); this.setShAlphabet.setEnabled(false);
+					this.setLev.setEnabled(false); this.setLevV.setEditable(false);
+					this.keyWord.setEditable(false); this.UseKeyW.setEnabled(false);
+					this.tAlphabet.setEditable(true); this.setAlphabet.setEnabled(true);
+					break; 
+					
+			case 3: this.iShift.setEditable(false); this.setShAlphabet.setEnabled(false);
+					this.setLev.setEnabled(true); this.setLevV.setEditable(true);
+					this.keyWord.setEditable(false); this.UseKeyW.setEnabled(false);
+					this.tAlphabet.setEditable(false); this.setAlphabet.setEnabled(false);
+					break;
+					
+			case 4: this.iShift.setEditable(false); this.setShAlphabet.setEnabled(false);
+					this.setLev.setEnabled(false); this.setLevV.setEditable(false);
+					this.keyWord.setEditable(true); this.UseKeyW.setEnabled(true);
+					this.tAlphabet.setEditable(false); this.setAlphabet.setEnabled(false);
+					break;
+					
+			default:	this.iShift.setEditable(false); this.setShAlphabet.setEnabled(false);
+						this.setLev.setEnabled(false); this.setLevV.setEditable(false);
+						this.keyWord.setEditable(false); this.UseKeyW.setEnabled(false);
+						this.tAlphabet.setEditable(false); this.setAlphabet.setEnabled(false);
+						break;
+		}
+		
+	}
+	public int getButton() {
+		int i = 0;
+		if (this.setK.isSelected()) i = 4;
+		if (this.setT.isSelected()) i = 3;
+		if (this.setM.isSelected()) i = 2;
+		if (this.setS.isSelected()) i = 1;
+		return i;
+	}
 }
