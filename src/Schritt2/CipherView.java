@@ -9,6 +9,8 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
 import javax.swing.text.PlainDocument;
 
+import Schritt1.InException;
+
 public class CipherView extends JFrame {
 	private JTextField tAlphabet;
 	private JTextField tTexten;
@@ -172,37 +174,38 @@ public class CipherView extends JFrame {
 		if (e.getSource() == this.setShAlphabet) return true;
 		return false;
 	}
-	public void setWert() {
+	public void setWert() throws InException{
 		String s = this.iShift.getText();
+		InException in1 = new InException(3);
 		int i = 0;
 		try {
 			i = Integer.parseInt(s);
 		} catch (NumberFormatException e) {
-			JOptionPane.showMessageDialog(null, "Geben Sie eine korrekte Zahl ein!");
+			throw in1;
 		}
 		if (i > 0 && i<= 30) {
 			this.Model.setVer(i);
 		} else {
-			JOptionPane.showMessageDialog(null, "Geben Sie eine korrekte Zahl ein!");
+			throw in1;
 		}
 	}
 	public void setKW() {
 		this.Model.setKeyword(this.keyWord.getText());
 		
 	}
-	public void setVal() {
+	public void setVal() throws InException{
 		int value = 0;
+		InException in1 = new InException(3);
 		String s = this.setLevV.getText();
 		try {
 			value = Integer.parseInt(s);
-			
 		} catch (NumberFormatException e) {
-			JOptionPane.showMessageDialog(null, "Geben Sie eine korrekte Zahl ein!");
+			throw in1;
 		}
 		if (value > 0 && value<= 5) {
 			this.Model.setLev(value);
 		} else {
-			JOptionPane.showMessageDialog(null, "Geben Sie eine korrekte Zahl ein!");
+			throw in1;
 		}
 	}
 	public boolean klickTS(ActionEvent e) {

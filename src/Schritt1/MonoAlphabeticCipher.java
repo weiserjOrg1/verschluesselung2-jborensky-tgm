@@ -27,7 +27,7 @@ public class MonoAlphabeticCipher implements Cipher {
 		if(secretAlphabet.length() == this.secretAlphabet.length() && checkNumbOfLetters(newSA) == false && containsLetters(newSA) == true){
 			this.secretAlphabet = newSA;
 		}else {
-			InException in1 = new InException("Bitte geben Sie ein gültiges Verschlüsselungsalphabet ein");
+			InException in1 = new InException(1);
 			throw in1;
 		}
 	}
@@ -68,7 +68,7 @@ public class MonoAlphabeticCipher implements Cipher {
 	public String encrypt(String s1) throws InException{
 		String t1 = "";
 		if(s1 == null || s1 == "") {
-			InException in1 = new InException("Ungültige Eingabe. -> 's1' darf nicht leer sein!");
+			InException in1 = new InException(2);
 			throw in1;
 		}else {
 			s1 = s1.toLowerCase();
@@ -92,7 +92,7 @@ public class MonoAlphabeticCipher implements Cipher {
 	public String decrypt(String s1) throws InException{
 		String t1 = "";
 		if(s1 == null || s1 == "") {
-			InException in1 = new InException("Ungültige Eingabe. -> 's1' darf nicht leer sein!");
+			InException in1 = new InException(2);
 			throw in1;
 		}else {
 			s1 = s1.toLowerCase();
