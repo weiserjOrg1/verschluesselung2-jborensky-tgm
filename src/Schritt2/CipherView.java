@@ -55,7 +55,7 @@ public class CipherView extends JFrame {
 		this.setLayout(new GridLayout(5,1));
 		
 		//Panel erstellen
-		this.Panel = new CipherPanel(this, this.Model);
+		this.Panel = new CipherPanel(this.Model);
 		
 		//Container für die Eingabe der Texte
 		this.EnDeT = new Container();
@@ -260,19 +260,21 @@ public class CipherView extends JFrame {
 	/*
 	 * Der Wert der Verschiebung für den Shift-Cipher
 	 * wird durch das Auslesen des Eingabefeldes gesetzt.
+	 * @throws InException Exception bei falscher Eingabe
 	 */
 	public void setWert() throws InException{
 		String s = this.iShift.getText();
-		InException in1 = new InException(3);
 		int i = 0;
 		try {
 			i = Integer.parseInt(s);
 		} catch (NumberFormatException e) {
+			InException in1 = new InException(3);
 			throw in1;
 		}
 		if (i > 0 && i<= 30) {
 			this.Model.setVer(i);
 		} else {
+			InException in1 = new InException(3);
 			throw in1;
 		}
 	}
@@ -287,19 +289,21 @@ public class CipherView extends JFrame {
 	
 	/*
 	 * Das Transpositionslevel wird durch das Auslesen des Eingabefeldes gesetzt.
+	 * @throws InException Exception bei falscher Eingabe
 	 */
 	public void setVal() throws InException{
 		int value = 0;
-		InException in1 = new InException(3);
 		String s = this.setLevV.getText();
 		try {
 			value = Integer.parseInt(s);
 		} catch (NumberFormatException e) {
+			InException in1 = new InException(3);
 			throw in1;
 		}
 		if (value > 0 && value <= 5) {
 			this.Model.setLev(value);
 		} else {
+			InException in1 = new InException(3);
 			throw in1;
 		}
 	}

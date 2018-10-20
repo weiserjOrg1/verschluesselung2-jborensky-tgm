@@ -1,7 +1,10 @@
 package Schritt1;
 
 import Schritt1.InException;
-
+/* MonoAlphabeticCipher dient als Elternklasse für alle Verschlüsselungsklassen
+ * @author BORJR
+ * @version 2018-10-20
+ */
 public class MonoAlphabeticCipher implements Cipher {
 	private String secretAlphabet;//Variable für das secretAlphabet/Verschlüsselungsalphabet  
 	/**
