@@ -1,7 +1,7 @@
 package Schritt3;
 
 import Schritt1.Cipher;
-/* Der TranspositionCipher wird zur Verschlüsselung u. Entschlüsselung von Texten mit der
+/** Der TranspositionCipher wird zur Verschlüsselung u. Entschlüsselung von Texten mit der
  * Gartenzaunmethode verwendet.
  * @author BORJR
  * @version 2018-10-19
@@ -10,28 +10,28 @@ public class TranspositionCipher implements Cipher{
 	private int level; //Transpositionslevel
 	private String text; //String zum Bearbeiten (Ver- u. Entschlüsseln)
 	
-	/* Der Konstruktor der TranspositionCipher-Klasse übernimmt das Transpositionslevel.
+	/** Der Konstruktor der TranspositionCipher-Klasse übernimmt das Transpositionslevel.
 	 * @param int level Transpositionslevel
 	 */
 	public TranspositionCipher(int level) {
 		this.level = level;
 	}
 	
-	/* Diese Methode setzt das Transpositionslevel, dass verwendet wird.
+	/** Diese Methode setzt das Transpositionslevel, dass verwendet wird.
 	 * @param level Transpositionslevel
 	 */
 	public void setTranspositionLevel(int level) { 
 		if (level >= 1 && level <= 5) this.level = level;
 	}
 
-	/*
+	/**
 	 * Getter-Methode für den verarbeiteten Text
 	 * @return String verarbeiteter Text
 	 */
 	public String getInhalt() {
 		return this.text;
 	}
-	/*
+	/**
 	 * Setter-Methode für den zu verarbeitenden Text
 	 * @param String t zu verarbeitender Text
 	 */
@@ -40,7 +40,7 @@ public class TranspositionCipher implements Cipher{
 	}
 	
 	@Override
-	/* Methode zum Verschlüsseln eines Texts nach dem Transpositionsprinzip.
+	/** Methode zum Verschlüsseln eines Texts nach dem Transpositionsprinzip.
 	 * @param String text Text, der entschlüsselt werden soll
 	 */
 	public String encrypt(String text) {
@@ -88,7 +88,7 @@ public class TranspositionCipher implements Cipher{
 	}
 
 	@Override
-	/* Methode zum Entschlüsseln eines nach dem Transpositionsprinzip verschlüsselten Texts.
+	/** Methode zum Entschlüsseln eines nach dem Transpositionsprinzip verschlüsselten Texts.
 	 * @param String text Text, der entschlüsselt werden soll
 	 */
 	public String decrypt(String text) {

@@ -1,5 +1,5 @@
 package Schritt1;
-/* Kindklasse der MonoAlphabeticCipher, die bei der Erstellung ein Alphabet festlegt
+/** Kindklasse der MonoAlphabeticCipher, die bei der Erstellung ein Alphabet festlegt
  * @author BORJR
  * @version 2018-10-20
  */

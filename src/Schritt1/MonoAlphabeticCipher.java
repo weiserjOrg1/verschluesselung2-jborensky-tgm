@@ -1,7 +1,7 @@
 package Schritt1;
 
 import Schritt1.InException;
-/* MonoAlphabeticCipher dient als Elternklasse für alle Verschlüsselungsklassen
+/** MonoAlphabeticCipher dient als Elternklasse für alle Verschlüsselungsklassen
  * @author BORJR
  * @version 2018-10-20
  */

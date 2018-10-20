@@ -2,7 +2,7 @@ package Schritt2;
 
 import java.awt.*;
 import javax.swing.*;
-/*
+/**
  * Die CipherPanel-Klasse erstellt eine Zeichenoberfläche auf dem der verwendete und bearbeitete Text eingegeben wird.
  * @author BORJR
  * @version 2018-10-20
@@ -10,7 +10,7 @@ import javax.swing.*;
 public class CipherPanel extends JPanel{
 	private CipherModel m1;
 	
-	/*
+	/**
 	 * Der Konstruktor der Panel-Klasse greift auf die Model-Klasse zu, um die Daten nutzen zu können.
 	 * @param CipherModel m verwendete Model-Klasse
 	 */
@@ -18,7 +18,7 @@ public class CipherPanel extends JPanel{
 		this.m1 = m;
 	}
 	
-	/*
+	/**
 	 * Diese Methode gibt den Text aus der Model-Klasse aus.
 	 * @param Graphics g Grafikobjekt
 	 */

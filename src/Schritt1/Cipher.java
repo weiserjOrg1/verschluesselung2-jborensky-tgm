@@ -1,5 +1,5 @@
 package Schritt1;
-/* Festlegen der Syntax
+/** Festlegen der Syntax
  * @author BORJR
  * @version 2018-10-20
  */

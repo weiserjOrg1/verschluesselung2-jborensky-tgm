@@ -10,7 +10,7 @@ import javax.swing.text.Document;
 import javax.swing.text.PlainDocument;
 
 import Schritt1.InException;
-/* Die View-Klasse erstellt alle GUI-Objekte und dient zusammen mit dem Controller der Verarbeitung von Ereignissen.
+/** Die View-Klasse erstellt alle GUI-Objekte und dient zusammen mit dem Controller der Verarbeitung von Ereignissen.
  * @author BORJR
  * @version 2018-10-19
  */
@@ -43,7 +43,7 @@ public class CipherView extends JFrame {
 	private JRadioButton setK;
 	private Container BGroup;
 	
-	/* Der Konstruktor der CipherView-Klasse erzeugt alle Objekte und fügt sie dem erzeugten Fenster hinzu.
+	/** Der Konstruktor der CipherView-Klasse erzeugt alle Objekte und fügt sie dem erzeugten Fenster hinzu.
 	 * @param CipherModel m Model, das für die Verarbeitung der Daten verwendet wird
 	 * @param CipherController c Controller, der für die Ereignisverwaltung verwendet wird
 	 */
@@ -156,7 +156,7 @@ public class CipherView extends JFrame {
 		this.setVisible(true);
 	}
 	
-	/* Gibt Auskunft, ob der Button gedrückt wurde.
+	/** Gibt Auskunft, ob der Button gedrückt wurde.
 	 * @param ActionEvent e Auskunft welches ActionEvent den Aufruf ausgelöst hat
 	 * @return boolean ob Button ausgewählt wurde
 	 */
@@ -164,63 +164,63 @@ public class CipherView extends JFrame {
 		if (e.getSource() == this.setS) return true;
 		return false;
 	}
-	/*
+	/**
 	 * @see setS
 	 */
 	public boolean setT(ActionEvent e) {
 		if (e.getSource() == this.setT) return true;
 		return false;
 	}
-	/*
+	/**
 	 * @see setS
 	 */
 	public boolean setK(ActionEvent e) {
 		if (e.getSource() == this.setK) return true;
 		return false;
 	}
-	/*
+	/**
 	 * @see setS
 	 */
 	public boolean setM(ActionEvent e) {
 		if (e.getSource() == this.setM) return true;
 		return false;
 	}
-	/*
+	/**
 	 * @see setS
 	 */
 	public boolean klickSA(ActionEvent e) {
 		if (e.getSource() == this.setAlphabet) return true;
 		return false;
 	}
-	/*
+	/**
 	 * @see setS
 	 */
 	public boolean klickEn(ActionEvent e) {
 		if (e.getSource() == this.en) return true;
 		return false;
 	}
-	/*
+	/**
 	 * @see setS
 	 */
 	public boolean klickDe(ActionEvent e) {
 		if (e.getSource() == this.de) return true;
 		return false;
 	}
-	/*
+	/**
 	 * @see setS
 	 */
 	public boolean klickUKW(ActionEvent e) {
 		if (e.getSource() == this.UseKeyW) return true;
 		return false;
 	}
-	/*
+	/**
 	 * @see setS
 	 */
 	public boolean klickShA(ActionEvent e) {
 		if (e.getSource() == this.setShAlphabet) return true;
 		return false;
 	}
-	/*
+	/**
 	 * @see setS
 	 */
 	public boolean klickTS(ActionEvent e) {
@@ -228,28 +228,28 @@ public class CipherView extends JFrame {
 		return false;
 	}
 	
-	/*
+	/**
 	 * Das Fenster wird nach dem Aktualisieren von einigen Wert neu erstellt.
 	 */
 	public void refresh() {
 		this.repaint();
 	}
 	
-	/*
+	/**
 	 * Das angegebene Verschlüsselungsalphabet wird der Model-Klasse übergeben.
 	 */
 	public void setText() {
 		this.Model.setAlphabet(this.tAlphabet.getText());
 	}
 	
-	/*
+	/**
 	 * Das angegebene verschlüsselte Text wird der Model-Klasse übergeben.
 	 */
 	public void setDe() {
 		this.Model.setDtext(this.tTextde.getText());
 	}
 	
-	/*
+	/**
 	 * Das angegebene entschlüsselte Text wird der Model-Klasse übergeben.
 	 */
 	public void setEn() {
@@ -257,7 +257,7 @@ public class CipherView extends JFrame {
 	}
 	
 	
-	/*
+	/**
 	 * Der Wert der Verschiebung für den Shift-Cipher
 	 * wird durch das Auslesen des Eingabefeldes gesetzt.
 	 * @throws InException Exception bei falscher Eingabe
@@ -279,7 +279,7 @@ public class CipherView extends JFrame {
 		}
 	}
 	
-	/*
+	/**
 	 * Das Keyword wird durch das Auslesen des Eingabefeldes gesetzt.
 	 */
 	public void setKW() {
@@ -287,7 +287,7 @@ public class CipherView extends JFrame {
 		
 	}
 	
-	/*
+	/**
 	 * Das Transpositionslevel wird durch das Auslesen des Eingabefeldes gesetzt.
 	 * @throws InException Exception bei falscher Eingabe
 	 */
@@ -308,7 +308,7 @@ public class CipherView extends JFrame {
 		}
 	}
 	
-	/* Diese Methode übernimmt einen Parameter und sperrt dann je nachdem welchen Wert dieser Parameter hat verschiedene
+	/** Diese Methode übernimmt einen Parameter und sperrt dann je nachdem welchen Wert dieser Parameter hat verschiedene
 	 * Schaltflächen.
 	 * @param int i Paramter, der entscheidet, welche Schaltflächen gesperrt werden
 	 */
@@ -346,7 +346,7 @@ public class CipherView extends JFrame {
 		}
 		
 	}
-	/* Diese Methode gibt dem Aufrufer Auskunft darüber, welcher Button ausgewählt wurde.
+	/** Diese Methode gibt dem Aufrufer Auskunft darüber, welcher Button ausgewählt wurde.
 	 * @return int i Wert, der Auskunft über die Buttons gibt
 	 */
 	public int getButton() {

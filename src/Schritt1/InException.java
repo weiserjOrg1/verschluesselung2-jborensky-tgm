@@ -1,12 +1,12 @@
 package Schritt1;
 
 import javax.swing.JOptionPane;
-/* Exception zur Verabeitung bei Benutzereingaben
+/** Exception zur Verabeitung bei Benutzereingaben
  * @author BORJR
  * @version 2018-10-20
  */
 public class InException extends NumberFormatException{
-	/* Der Konstruktor der Exception legt mittels eines Parameters den Ausgabetext fest.
+	/** Der Konstruktor der Exception legt mittels eines Parameters den Ausgabetext fest.
 	 * @param s der übergebene Ausgabe-Text
 	 */
 	public InException(int i) {

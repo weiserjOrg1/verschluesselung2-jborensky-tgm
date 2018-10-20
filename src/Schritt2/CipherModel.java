@@ -8,7 +8,7 @@ public class CipherModel {
 	public String keyWord;
 	private int lev;
 	
-	/*
+	/**
 	 * Der Konstruktor der CipherModel-Klasse initialisiert die Startwerte der Attribute.
 	 */
 	public CipherModel() {
@@ -20,14 +20,14 @@ public class CipherModel {
 		this.lev = 0;
 	}
 	
-	/*
+	/**
 	 * Getter-Methode für das etext-Attribut
 	 * @return String etext vom Benutzer eingegebener Text
 	 */
 	public String getEtext() {
 		return etext;
 	}
-	/*
+	/**
 	 * Setter-Methode für das etext-Attribut
 	 * @param String etext eingegebener Text
 	 */
@@ -35,14 +35,14 @@ public class CipherModel {
 		this.etext = etext;
 	}
 	
-	/*
+	/**
 	 * Getter-Methode für das dtext-Attribut
 	 * @return String dtext vom Benutzer eingegebener Text
 	 */
 	public String getDtext() {
 		return dtext;
 	}
-	/*
+	/**
 	 * Setter-Methode für das dtext-Attribut
 	 * @param String dtext eingegebener Text
 	 */
@@ -50,14 +50,14 @@ public class CipherModel {
 		this.dtext = dtext;
 	}
 	
-	/*
+	/**
 	 * Getter-Methode für das alphabet-Attribut
 	 * @return String alphabet eingegebenes Alphabet
 	 */
 	public String getAlphabet() {
 		return alphabet;
 	}
-	/*
+	/**
 	 * Setter-Methode für das alphabet-Attribut
 	 * @param String alphabet eingegebenes Alphabet
 	 */
@@ -65,14 +65,14 @@ public class CipherModel {
 		this.alphabet = alphabet;
 	}
 
-	/*
+	/**
 	 * Getter-Methode für das Ver-Attribut
 	 * @return int ver eingegebenes Verschiebelevel
 	 */
 	public int getVer() {
 		return Ver;
 	}
-	/*
+	/**
 	 * Setter-Methode für das ver-Attribut
 	 * @param int ver eingegebenes Verschiebelevel
 	 */
@@ -80,14 +80,14 @@ public class CipherModel {
 		Ver = ver;
 	}
 	
-	/*
+	/**
 	 * Getter-Methode für das etext-Attribut
 	 * @return String keyWord Schlüsselwort
 	 */
 	public String getKeyWord() {
 		return this.keyWord;
 	}
-	/*
+	/**
 	 * Setter-Methode für das KeyWord-Attribut
 	 * @param String KeyWord eingegebenes Keyword
 	 */
@@ -95,7 +95,7 @@ public class CipherModel {
 		this.keyWord = KeyWord;
 	}
 	
-	/*
+	/**
 	 * Diese Methode resetet alle Attributwerte
 	 */
 	public void refresh() {
@@ -107,14 +107,14 @@ public class CipherModel {
 		this.lev = 0;
 	}
 	
-	/*
+	/**
 	 * Getter-Methode für das lev-Attribut
 	 * @return int lev eingegebenes Transpositionslevel
 	 */
 	public int getLev() {
 		return this.lev;
 	}
-	/*
+	/**
 	 * Setter-Methode für das lev-Attribut
 	 * @param String lev eingegebenes Transpositionslevel
 	 */

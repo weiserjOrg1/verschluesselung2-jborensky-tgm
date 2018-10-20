@@ -14,7 +14,7 @@ import Schritt1.MonoAlphabeticCipher;
 import Schritt1.SubstitutionCipher;
 import Schritt3.KeywordCipher;
 import Schritt3.TranspositionCipher;
-/* Der Controller wird zur Ereignisverarbeitung und zum Erstellen anderer Objekte verwendet.
+/** Der Controller wird zur Ereignisverarbeitung und zum Erstellen anderer Objekte verwendet.
  * @author BORJR
  * @version 2018-10-19
  */
@@ -26,7 +26,7 @@ public class CipherController implements ActionListener, ItemListener {
 	private TranspositionCipher t1;
 	private boolean TcT; //sagt aus, ob ein TranspositionCipher verwendet wird
 	
-	/* 
+	/** 
 	 * Der Konstruktor der CipherController-Klasse erstellt eine Model- u. eine View-Klasse.
 	 */
 	public CipherController() {
@@ -36,7 +36,7 @@ public class CipherController implements ActionListener, ItemListener {
 	}
 
 	@Override
-	/*
+	/**
 	 * Methode zur Verarbeitung von Ereignissen in der GUI
 	 * @param ActionEvent e aufgerufenes ActionEvent
 	 */
@@ -48,6 +48,7 @@ public class CipherController implements ActionListener, ItemListener {
 			this.View.refresh();
 			this.View.setText();
 			this.c1 = new SubstitutionCipher(this.Model.getAlphabet());
+			this.TcT = false;
 		}
 		
 		//ShiftCipher verwenden
@@ -57,6 +58,7 @@ public class CipherController implements ActionListener, ItemListener {
 			this.View.refresh();
 			this.View.setWert();
 			this.c1 = new ShiftCipher(this.Model.getVer());
+			this.TcT = false;
 		}
 		
 		//KeywordCipher verwenden
@@ -66,6 +68,7 @@ public class CipherController implements ActionListener, ItemListener {
 			this.View.refresh();
 			this.View.setKW();
 			this.c1 = new KeywordCipher(this.Model.getKeyWord());
+			this.TcT = false;
 		}
 		
 		//TranspositionCipher verwenden
@@ -97,10 +100,6 @@ public class CipherController implements ActionListener, ItemListener {
 			} else {
 				this.Model.setEtext(this.c1.encrypt(this.Model.getEtext()));
 			}
-			//if (this.alphT) this.Model.setEtext(this.s1.encrypt(this.Model.getEtext()));
-			//if (this.shT) this.Model.setEtext(this.sh1.encrypt(this.Model.getEtext()));
-			//if (this.kCT) this.Model.setEtext(this.kC.encrypt(this.Model.getEtext()));
-			//if (this.TcT) this.Model.setEtext(this.TC.encrypt(this.Model.getEtext()));
 			this.View.refresh();
 		}
 		
